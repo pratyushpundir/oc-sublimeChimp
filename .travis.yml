@@ -21,6 +21,7 @@ before_script:
   - mv !(october) october/plugins/sublimearts/sublimechimp
   - cd october
   - composer install
+  - composer dump-autoload
   - cd plugins/sublimearts/sublimechimp
   - composer install
   - composer dump-autoload
