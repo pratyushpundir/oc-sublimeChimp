@@ -20,18 +20,18 @@ class Recipient extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'email',
+        'record_id',
+        'record_class'
+    ];
 
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $belongsToMany = [
+        'mailingLists' => [ 'SublimeArts\ChimpMailing\Models\MailingList' ],
+        'mailingLists_count' => [ 'SublimeArts\ChimpMailing\Models\MailingList', 'count' => 'true' ]
+    ];
 }

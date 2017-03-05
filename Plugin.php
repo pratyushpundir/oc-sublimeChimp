@@ -2,6 +2,7 @@
 
 use Backend;
 use System\Classes\PluginBase;
+use SublimeArts\SublimeChimp\Models\Settings;
 
 /**
  * SublimeChimp Plugin Information File
@@ -31,7 +32,7 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-
+        
     }
 
     /**

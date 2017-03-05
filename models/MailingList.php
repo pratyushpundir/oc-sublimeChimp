@@ -25,13 +25,24 @@ class MailingList extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $hasMany = [
+        'campaigns' => [ 'SublimeArts\SublimeChimp\Models\Campaign' ],
+        'campaigns_count' => [ 'SublimeArts\SublimeChimp\Models\Campaign', 'count' => 'true' ],
+    ];
+
+    public $belongsToMany = [
+        'recipients' => [
+            'SublimeArts\SublimeChimp\Models\Recipient',
+            'table'    => 'sa_mailing_list_recipient',
+            'key'      => 'mailing_list_id',
+            'otherKey' => 'recipient_id'
+        ],
+        'recipients_count' => [
+            'SublimeArts\SublimeChimp\Models\Recipient',
+            'table'    => 'sa_mailing_list_recipient',
+            'key'      => 'mailing_list_id',
+            'otherKey' => 'recipient_id',
+            'count'    => 'true'
+        ]
+    ];
 }

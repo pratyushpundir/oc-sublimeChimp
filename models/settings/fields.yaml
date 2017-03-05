@@ -10,6 +10,7 @@ tabs:
             span: left
             required: true
             tab: MailChimp
+            comment: This will be the email address you use to login to MailChimp.
 
         mailchimp_api_key:
             label: MailChimp API Key
@@ -17,15 +18,18 @@ tabs:
             type: password
             required: true
             tab: MailChimp
+            comment: Get your MailChimp API key at the below link. You will need Manager permissions. http://kb.mailchimp.com/integrations/api-integrations/about-api-keys
 
         default_from_name:
             label: "Default 'From' name"
             span: left
             required: true
             tab: Defaults
+            comment: The name that the email recipients will see when they receive your campaign emails.
 
         default_reply_to:
             label: "Default 'Reply to' email address"
             span: right
             required: true
             tab: Defaults
+            comment: The email address that should be used to recieve all "replies" to your campaign emails.

@@ -11,6 +11,18 @@ class CreateCampaignsTable extends Migration
         Schema::create('sa_sublimechimp_campaigns', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+
+            $table->string('name')->notnull()->unique();
+            $table->integer('mailing_list_id')->unsigned()->nullable();
+            $table->string('mailchimp_id')->nullable();
+            $table->string('mailchimp_list_id')->nullable();
+            $table->string('type')->nullable();
+            $table->string('subject_line')->nullable();
+            $table->string('reply_to')->nullable();
+            $table->string('current_status')->nullable();
+            $table->integer('emails_sent')->unsigned()->nullable();
+            $table->timestamp('sent_on')->nullable();
+
             $table->timestamps();
         });
     }

@@ -8,15 +8,21 @@ class CreateRecipientsTable extends Migration
 {
     public function up()
     {
-        Schema::create('sublimearts_sublimechimp_recipients', function(Blueprint $table) {
+        Schema::create('sa_sublimechimp_recipients', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            
+            $table->string('name')->nullable();
+            $table->string('email')->unique()->index();
+            $table->string('record_id')->unique()->index();
+            $table->string('record_class')->unique()->index();
+
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('sublimearts_sublimechimp_recipients');
+        Schema::dropIfExists('sa_sublimechimp_recipients');
     }
 }
