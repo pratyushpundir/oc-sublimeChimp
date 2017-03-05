@@ -77,6 +77,10 @@ class Plugin extends PluginBase
             'sublimearts.sublimechimp.manage_templates' => [
                 'tab' => 'Sublime Chimp',
                 'label' => 'Manage Templates'
+            ],
+            'sublimearts.sublimechimp.manage_settings' => [
+                'tab' => 'Sublime Chimp',
+                'label' => 'Manage Plugin Settings'
             ]
         ];
     }
@@ -118,6 +122,26 @@ class Plugin extends PluginBase
                     ],
                 ]
             ],
+        ];
+    }
+
+    /**
+     * Register Backend Settings
+     * @return array
+     */
+    public function registerSettings()
+    {
+        return [
+            'sublimechimp' => [
+                'label'       => 'Sublime Chimp',
+                'description' => 'Manage settings related to MailChimp integration.',
+                'category'    => 'Plugins',
+                'icon'        => 'icon-envelope',
+                'class'       => 'SublimeArts\SublimeChimp\Models\Settings',
+                'order'       => 500,
+                'keywords'    => 'sublimechimp mailchimp email template campaign mass-email',
+                'permissions' => ['sublimearts.sublimechimp.manage_settings']
+            ]
         ];
     }
 }
