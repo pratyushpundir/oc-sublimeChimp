@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Mailing List
+
+# Model Form Field configuration
+form: $/sublimearts/sublimechimp/models/mailinglist/fields.yaml
+
+# Model Class name
+modelClass: SublimeArts\SublimeChimp\Models\MailingList
+
+# Default redirect location
+defaultRedirect: sublimearts/sublimechimp/mailinglists
+
+# Create page
+create:
+    title: Create Mailing List
+    redirect: sublimearts/sublimechimp/mailinglists/update/:id
+    redirectClose: sublimearts/sublimechimp/mailinglists
+
+# Update page
+update:
+    title: Edit Mailing List
+    redirect: sublimearts/sublimechimp/mailinglists
+    redirectClose: sublimearts/sublimechimp/mailinglists
+
+# Preview page
+preview:
+    title: Preview Mailing List

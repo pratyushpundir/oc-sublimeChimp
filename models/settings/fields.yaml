@@ -1,0 +1,31 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+tabs:
+
+    fields:
+
+        mailchimp_username:
+            label: MailChimp Username
+            span: left
+            required: true
+            tab: MailChimp
+
+        mailchimp_api_key:
+            label: MailChimp API Key
+            span: right
+            type: password
+            required: true
+            tab: MailChimp
+
+        default_from_name:
+            label: "Default 'From' name"
+            span: left
+            required: true
+            tab: Defaults
+
+        default_reply_to:
+            label: "Default 'Reply to' email address"
+            span: right
+            required: true
+            tab: Defaults

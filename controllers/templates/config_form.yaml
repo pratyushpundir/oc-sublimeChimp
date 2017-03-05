@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Template
+
+# Model Form Field configuration
+form: $/sublimearts/sublimechimp/models/template/fields.yaml
+
+# Model Class name
+modelClass: SublimeArts\SublimeChimp\Models\Template
+
+# Default redirect location
+defaultRedirect: sublimearts/sublimechimp/templates
+
+# Create page
+create:
+    title: Create Template
+    redirect: sublimearts/sublimechimp/templates/update/:id
+    redirectClose: sublimearts/sublimechimp/templates
+
+# Update page
+update:
+    title: Edit Template
+    redirect: sublimearts/sublimechimp/templates
+    redirectClose: sublimearts/sublimechimp/templates
+
+# Preview page
+preview:
+    title: Preview Template

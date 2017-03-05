@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Campaign
+
+# Model Form Field configuration
+form: $/sublimearts/sublimechimp/models/campaign/fields.yaml
+
+# Model Class name
+modelClass: SublimeArts\SublimeChimp\Models\Campaign
+
+# Default redirect location
+defaultRedirect: sublimearts/sublimechimp/campaigns
+
+# Create page
+create:
+    title: Create Campaign
+    redirect: sublimearts/sublimechimp/campaigns/update/:id
+    redirectClose: sublimearts/sublimechimp/campaigns
+
+# Update page
+update:
+    title: Edit Campaign
+    redirect: sublimearts/sublimechimp/campaigns
+    redirectClose: sublimearts/sublimechimp/campaigns
+
+# Preview page
+preview:
+    title: Preview Campaign
