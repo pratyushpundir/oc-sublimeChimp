@@ -9,6 +9,7 @@ A simple plugin that integrates with the awesome [MailChimp](https://www.mailchi
 - [ ] Manage MailChimp Email Templates.
 - [ ] Provide MailChimp Report Widgets.
 - [ ] Provide an intuitive way to allow easy addition of recipients to specific MailingLists from possible existing forms on the site.
+- [ ] Allow Import and Export of Mailing Lists as .csv/.xls/.xlsx files.
 - [ ] MailChimp webhooks integration.
 
 
