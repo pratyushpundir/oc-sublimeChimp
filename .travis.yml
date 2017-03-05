@@ -23,6 +23,7 @@ before_script:
   - composer install
   - cd plugins/sublimearts/sublimechimp
   - composer install
+  - composer dump-autoload
   # - mkdir -p ../../rainlab
   # - cd ../../rainlab
   # - git clone https://github.com/rainlab/user-plugin
