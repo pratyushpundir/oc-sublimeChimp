@@ -3,6 +3,8 @@
         "guzzlehttp/guzzle": "~6.0"
     },
     "autoload": {
-        "psr-4": { "SublimeArts\\SublimeChimp\\Classes\\MailChimp\\" : "classes/MailChimp/" }
+        "psr-4": { 
+            "SublimeArts\\SublimeChimp" : "/" 
+        }
     }
 }
