@@ -17,6 +17,10 @@ class ComposerStaticInit7f1f8b3051a038ff2743ed672e3aacc0
         array (
             'Psr\\Http\\Message\\' => 17,
         ),
+        'M' => 
+        array (
+            'MailChimp\\' => 10,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -29,6 +33,10 @@ class ComposerStaticInit7f1f8b3051a038ff2743ed672e3aacc0
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'MailChimp\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/classes/MailChimp',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
