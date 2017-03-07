@@ -3,6 +3,13 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+  
+    name:
+        label: Name
         searchable: true
+        sortable: true
+
+    email:
+        label: Email
+        searchable: true
+        sortable: true

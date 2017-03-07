@@ -1,0 +1,12 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+recipients:
+    label: Recipients
+    view:
+        list: $/sublimearts/sublimechimp/models/recipient/columns.yaml
+    manage:
+        list: $/sublimearts/sublimechimp/models/recipient/columns.yaml
+    pivot:
+        form: $/sublimearts/sublimechimp/models/recipient/fields.yaml

@@ -3,6 +3,29 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+    
+    name:
+        label: Name
         searchable: true
+
+    mailingList:
+        label: Mailing List
+        relation: mailingList
+        select: name
+
+    created_at:
+        label: Created On
+        type: timetense
+
+    sent_on:
+        label: Sent On
+        type: timetense
+        default: Not sent yet
+
+    actions:
+        label: Actions
+        type: partial
+        path: ~/plugins/sublimearts/sublimechimp/models/campaign/_actions.htm
+        clickable: false
+        searchable: false
+        sortable: false

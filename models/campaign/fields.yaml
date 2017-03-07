@@ -3,6 +3,42 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    
+    name:
+        label: Campaign Name
+        span: left
+        required: true
+
+    mailingList:
+        label: Mailing List
+        span: right
+        required: true
+        type: relation
+        nameFrom: name
+
+    type:
+        label: Campaign Type
+        span: left
+        required: true
+        type: dropdown
+        options:
+            regular: Regular
+            plaintext: Plain Text
+            absplit: A/B Split
+            rss: RSS
+            variate: Variate
+
+    subject_line:
+        label: Subject Line
+        span: right
+        required: true
+
+    reply_to:
+        label: Reply To
+        span: left
+        comment: Defaults to the whatever is set in Settings if left blank here.
+
+    from_name:
+        label: From name
+        span: right
+        comment: Defaults to the whatever is set in Settings if left blank here.

@@ -3,6 +3,22 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+    name:
+        label: Name
         searchable: true
+        sortable: true
+
+    recipients_count:
+        label: No. of Recipients
+        relation: recipients_count
+        valueFrom: count
+
+    contact:
+        label: Contact
+        searchable: true
+        sortable: true
+
+    permission_reminder:
+        label: Permission Reminder
+        searchable: true
+        sortable: true

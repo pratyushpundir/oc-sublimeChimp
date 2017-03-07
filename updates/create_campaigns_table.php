@@ -18,6 +18,7 @@ class CreateCampaignsTable extends Migration
             $table->string('mailchimp_list_id')->nullable();
             $table->string('type')->nullable();
             $table->string('subject_line')->nullable();
+            $table->string('from_name')->nullable();
             $table->string('reply_to')->nullable();
             $table->string('current_status')->nullable();
             $table->integer('emails_sent')->unsigned()->nullable();

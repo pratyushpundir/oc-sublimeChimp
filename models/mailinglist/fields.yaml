@@ -3,6 +3,6 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
+    name:
+        label: List Name
         disabled: true

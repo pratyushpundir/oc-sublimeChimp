@@ -1,0 +1,25 @@
+<button class="btn btn-success btn-sm">
+    <i class="icon-paper-plane"></i>
+    &nbsp;
+    Send
+</button>
+
+<?php if ($record->current_status == "paused") : ?>
+    <button class="btn btn-warning btn-sm">
+        <i class="icon-play"></i>
+        &nbsp;
+        Resume
+    </button>
+<?php else : ?>
+    <button class="btn btn-warning btn-sm">
+        <i class="icon-pause"></i>
+        &nbsp;
+        Pause
+    </button>
+<?php endif; ?>
+
+<button class="btn btn-danger btn-sm">
+    <i class="icon-stop"></i>
+    &nbsp;
+    Stop
+</button>

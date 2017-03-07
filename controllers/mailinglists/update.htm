@@ -10,6 +10,7 @@
     <?= Form::open(['class' => 'layout']) ?>
 
         <div class="layout-row">
+            <?= $this->relationRender('recipients') ?>
             <?= $this->formRender() ?>
         </div>
 
