@@ -79,9 +79,9 @@ class ApiRequestor
     public static function get($recordType, $recordId = null)
     {
         if ( ! $recordId ) {
-            return static::httpClient()->request('GET', $recordType);
+            return json_decode(static::httpClient()->request('GET', $recordType)->getBody()->getContents(), true);
         } else {
-            return static::httpClient()->request('GET', "{$recordType}/{$recordId}");
+            return json_decode(static::httpClient()->request('GET', "{$recordType}/{$recordId}")->getBody()->getContents(), true);
         }
     }
 
