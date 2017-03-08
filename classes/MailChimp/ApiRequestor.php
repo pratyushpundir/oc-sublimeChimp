@@ -1,7 +1,10 @@
 <?php namespace SublimeArts\SublimeChimp\Classes\MailChimp;
 
 use SublimeArts\SublimeChimp\Models\Settings;
+use October\Rain\Exception\ApplicationException;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Client;
+use Log;
 
 class ApiRequestor
 {
@@ -42,16 +45,28 @@ class ApiRequestor
     }
 
     /**
-     * Saves a record of a given type with the provided data to MailChimp.
+     * Saves a record of a given type with the provided data to MailChimp and 
+     * returns an associative array with the created record if successful.
      * @param  String    $recordType  Either 'campaigns', 'lists' or 'templates'
      * @param  Array     $data        Passed in data to be saved as record  
-     * @return Response               JSON Response received from the MailChimp API
+     * @return Array                  Newly created record
      */
     public static function save($recordType, $data)
     {
-        return static::httpClient()->request('POST', $recordType, [
-            'json' => $data
-        ]);
+
+        try {
+            $record = static::httpClient()->request('POST', $recordType, [
+                'json' => $data
+            ]);
+
+            return json_decode($record->getBody()->getContents(), true);
+        } catch (ClientException $e) {
+            Log::error( $e );
+            
+            $recordType = studly_case( str_singular( $recordType ) );
+            throw new ApplicationException("{$recordType} creation on MailChimp failed. Aborting!! Check system Log for details.");
+        }
+
     }
 
     /**

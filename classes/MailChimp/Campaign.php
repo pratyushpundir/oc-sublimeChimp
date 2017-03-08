@@ -2,7 +2,7 @@
 
 use SublimeArts\SublimeChimp\Classes\MailChimp\ApiRequestor;
 use SublimeArts\SublimeChimp\Classes\MailChimp\ApiResource;
-use Log;
+use Log, Flash;
 
 class Campaign extends ApiResource
 {
@@ -36,13 +36,8 @@ class Campaign extends ApiResource
     {   
         $data = [
             'type' => $instance->type,
-            
-            /** TODO: START IMPLEMENTING THIS ONCE LISTS ARE DONE */
-            // 'recipients' => [
-            //     'list_id' => $instance->mailchimp_list_id
-            // ],
-            
             'settings' => [
+                'title' => $instance->name,
                 'subject_line' => $instance->subject_line,
                 'from_name' => $instance->from_name,
                 'reply_to' => $instance->reply_to

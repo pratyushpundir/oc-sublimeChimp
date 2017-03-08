@@ -1,6 +1,7 @@
 <?php namespace SublimeArts\SublimeChimp\Models;
 
-use Model, Log;
+use Model, Log, Flash;
+use October\Rain\Exception\SystemException;
 use SublimeArts\SublimeChimp\Classes\MailChimp\Campaign as MCCampaign;
 
 /**
@@ -21,7 +22,9 @@ class Campaign extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        "mailchimp_id"
+    ];
 
     /**
      * @var array Relations
@@ -32,6 +35,10 @@ class Campaign extends Model
 
     public function beforeCreate()
     {
+        /**
+         * Use default "reply_to" and "from_name" values set under plugin Settings
+         * if none were provided for the Campaign specifically.
+         */
         $this->reply_to = ($this->reply_to && $this->reply_to != '') 
                         ? $this->reply_to 
                         : Settings::get('default_reply_to');
@@ -43,8 +50,13 @@ class Campaign extends Model
 
     public function afterCreate()
     {
-        $mcCampaign = MCCampaign::create($this);
 
-        Log::alert($mcCampaign->getBody()->getContents());
+        /**
+         * Create the campaign on MailChimp using the API and set the
+         * MailChimp ID if successful.
+         */
+        $mcCampaign = MCCampaign::create($this);
+        $this->update(["mailchimp_id" => $mcCampaign["id"]]);
+
     }
 }
