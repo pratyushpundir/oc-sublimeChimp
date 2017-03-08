@@ -13,6 +13,7 @@ class Campaign extends ApiResource
             'list_id'
         ],
         'settings' => [
+            'title',
             'subject_line',
             'from_name',
             'reply_to'
@@ -25,6 +26,7 @@ class Campaign extends ApiResource
             'list_id' => 'mailchimp_list_id'
         ],
         'settings' => [
+            'title' => 'name',
             'subject_line' => 'subject_line',
             'from_name' => 'from_name',
             'reply_to' => 'reply_to'
