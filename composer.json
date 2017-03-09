@@ -4,7 +4,7 @@
     },
     "autoload": {
         "psr-4": { 
-            "SublimeArts\\SublimeChimp\\Classes\\MailChimp\\" : "classes/MailChimp/" 
+            "SublimeArts\\SublimeChimp\\Classes\\MailChimp\\" : "classes/MailChimp/"
         }
     }
 }

@@ -17,7 +17,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Sublime Chimp',
+            'name'        => 'SublimeChimp',
             'description' => 'Create awesome MailChimp email campaigns right from your OctoberCMS site backend.',
             'author'      => 'SublimeArts',
             'homepage'    => 'http://www.sublimearts.me',
@@ -95,7 +95,7 @@ class Plugin extends PluginBase
     {
         return [
             'sublimechimp' => [
-                'label'       => 'Sublime Chimp',
+                'label'       => 'SublimeChimp',
                 'url'         => Backend::url('sublimearts/sublimechimp/campaigns'),
                 'icon'        => 'icon-envelope',
                 'iconSvg'     => 'plugins/sublimearts/sublimechimp/assets/images/freddie-icon.svg',
@@ -134,7 +134,7 @@ class Plugin extends PluginBase
     {
         return [
             'sublimechimp' => [
-                'label'       => 'Sublime Chimp',
+                'label'       => 'SublimeChimp',
                 'description' => 'Manage settings related to MailChimp integration.',
                 'category'    => 'Plugins',
                 'icon'        => 'icon-envelope',

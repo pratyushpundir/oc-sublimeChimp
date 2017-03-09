@@ -78,10 +78,26 @@ class ApiRequestor
      */
     public static function get($recordType, $recordId = null)
     {
-        if ( ! $recordId ) {
-            return json_decode(static::httpClient()->request('GET', $recordType)->getBody()->getContents(), true);
+        try {
+            if ( ! $recordId ) {
+                return json_decode(static::httpClient()->request('GET', $recordType)->getBody()->getContents(), true);
+            } else {
+                return json_decode(static::httpClient()->request('GET', "{$recordType}/{$recordId}")->getBody()->getContents(), true);
+            }
+        } catch (ClientException $e) {
+            throw new ApplicationException("Record(s) not found!");
+        }
+    }
+
+
+    public static function delete($recordType, $recordIds)
+    {
+        if ( ! is_array($recordIds) ) {
+            return json_decode(static::httpClient()->request('DELETE', "{$recordType}/{$recordIds}")->getBody()->getContents(), true);
         } else {
-            return json_decode(static::httpClient()->request('GET', "{$recordType}/{$recordId}")->getBody()->getContents(), true);
+
+            /** Do not allow batch deletion for now. Will allow soon! */
+            throw new ApplicationException("Batch deletion is not allowed for your protection!");
         }
     }
 

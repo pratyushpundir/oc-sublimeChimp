@@ -41,7 +41,7 @@ class Settings extends Model
     {
         foreach (static::$requiredSettings as $settingName => $settingDescription) {
             if ( ! static::get($settingName) || static::get($settingName) == '' ) {
-                throw new ApplicationException("{$settingDescription} not set in Sublime Chimp's plugin backend settings!");
+                throw new ApplicationException("{$settingDescription} not set in SublimeChimp's plugin backend settings!");
             } else {
                 return true;
             }

@@ -13,13 +13,13 @@ class ComposerStaticInit7f1f8b3051a038ff2743ed672e3aacc0
     );
 
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'SublimeArts\\SublimeChimp\\Classes\\MailChimp\\' => 43,
+        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
-        ),
-        'M' => 
-        array (
-            'MailChimp\\' => 10,
         ),
         'G' => 
         array (
@@ -30,13 +30,13 @@ class ComposerStaticInit7f1f8b3051a038ff2743ed672e3aacc0
     );
 
     public static $prefixDirsPsr4 = array (
+        'SublimeArts\\SublimeChimp\\Classes\\MailChimp\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/classes/MailChimp',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
-        ),
-        'MailChimp\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/classes/MailChimp',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
