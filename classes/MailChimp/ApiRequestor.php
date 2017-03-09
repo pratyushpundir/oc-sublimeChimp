@@ -89,6 +89,19 @@ class ApiRequestor
         }
     }
 
+    public static function update($recordType, $recordId, $data)
+    {
+        try {
+            
+            return json_decode(static::httpClient()->request('PATCH', "{$recordType}/{$recordId}", [
+                'json' => $data
+            ])->getBody()->getContents(), true);
+
+        } catch (ClientException $e) {
+            throw new ApplicationException($e);
+        }
+    }
+
     /**
      * Delete a MailChimp record of a given type and with the provided MailChimp ID
      * @param  String    $recordType  Either 'campaigns', 'lists' or 'templates'

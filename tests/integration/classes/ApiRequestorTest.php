@@ -73,12 +73,13 @@ class ApiRequestorTest extends PluginTestCase
      */
     public function it_gets_all_records_of_a_given_type_from_mailchimp($recordIds)
     {
-        // $records = ApiRequestor::get( 'campaigns' );
-        // Log::alert($records);
+        $records = ApiRequestor::get( 'campaigns' );
+        Log::alert($records['campaigns']);
         
-        // foreach ($recordIds as $recordId) {
-        //     $this->assertContains( $recordId, $records["campaigns"] );
-        // }
+        foreach ($recordIds as $recordId) {
+            // $exists = array_search($recordId, $records);
+            $this->assertTrue(in_array($recordId, array_column($records['campaigns'], 'id')));
+        }
     }
 
     /**
@@ -117,6 +118,30 @@ class ApiRequestorTest extends PluginTestCase
 
     /**
      * @test
+     * @depends it_creates_a_single_record_on_mailchimp_and_fetches_it
+     */
+    public function it_updates_a_mailchimp_record_with_the_given_id_and_provided_data($recordIds)
+    {
+
+        foreach ($recordIds as $recordId) {
+            $updatedRecord = ApiRequestor::update('campaigns', $recordId, [
+                "settings" => [
+                    "subject_line" => "Edited Test Campaigns",
+                    "from_name" => "Edited Test Sender",
+                    "reply_to" => "edited@test.com"
+                ]
+            ]);
+
+            $this->assertContains( "Edited Test Campaigns", $updatedRecord );
+            $this->assertContains( "Edited Test Sender", $updatedRecord );
+            $this->assertContains( "edited@test.com", $updatedRecord );
+        }
+
+    }
+
+
+    /**
+     * @test
      * @expectedException ApplicationException
      * @depends it_creates_a_single_record_on_mailchimp_and_fetches_it
      */
@@ -125,6 +150,13 @@ class ApiRequestorTest extends PluginTestCase
 
         foreach ($recordIds as $recordId) {
             $result = ApiRequestor::delete( 'campaigns', $recordId );
+        }
+
+        /**
+         * Take out of the previous loop so as to not hit an 
+         * exception before all test records are deleted.
+         */
+        foreach ($recordIds as $recordId) {
             ApiRequestor::get( 'campaigns', $recordId );
         }
         
