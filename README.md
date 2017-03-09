@@ -1,6 +1,6 @@
 ### Sublime Chimp
 
-[![Build Status](https://travis-ci.org/pratyushpundir/oc-sublimeChimp.svg?branch=develop)](https://travis-ci.org/pratyushpundir/oc-sublimeChimp)
+[![Build Status](https://travis-ci.org/pratyushpundir/oc-sublimeChimp.svg?branch=master)](https://travis-ci.org/pratyushpundir/oc-sublimeChimp)
 
 A simple plugin that integrates with the awesome [MailChimp](https://www.mailchimp.com) mass email provider and allows you to manage your campaigns, lists and email templates right from your [OctoberCMS](https://www.octobercms.com) site admin panel.
 
