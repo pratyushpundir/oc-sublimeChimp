@@ -5,7 +5,6 @@ require "vendor/autoload.php";
 use PluginTestCase;
 use SublimeArts\SublimeChimp\Models\Settings;
 use SublimeArts\SublimeChimp\Classes\MailChimp\ApiRequestor;
-use Log;
 
 class ApiRequestorTest extends PluginTestCase
 {
@@ -74,11 +73,9 @@ class ApiRequestorTest extends PluginTestCase
     public function it_gets_all_records_of_a_given_type_from_mailchimp($recordIds)
     {
         $records = ApiRequestor::get( 'campaigns' );
-        Log::alert($records['campaigns']);
         
         foreach ($recordIds as $recordId) {
-            // $exists = array_search($recordId, $records);
-            $this->assertTrue(in_array($recordId, array_column($records['campaigns'], 'id')));
+            $this->assertTrue( in_array( $recordId, array_column( $records['campaigns'], 'id' ) ) );
         }
     }
 
