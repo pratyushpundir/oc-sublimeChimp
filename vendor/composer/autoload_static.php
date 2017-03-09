@@ -15,6 +15,7 @@ class ComposerStaticInit7f1f8b3051a038ff2743ed672e3aacc0
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'SublimeArts\\SublimeChimp\\Classes\\SublimeChimp\\' => 46,
             'SublimeArts\\SublimeChimp\\Classes\\MailChimp\\' => 43,
         ),
         'P' => 
@@ -30,6 +31,10 @@ class ComposerStaticInit7f1f8b3051a038ff2743ed672e3aacc0
     );
 
     public static $prefixDirsPsr4 = array (
+        'SublimeArts\\SublimeChimp\\Classes\\SublimeChimp\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/classes/SublimeChimp',
+        ),
         'SublimeArts\\SublimeChimp\\Classes\\MailChimp\\' => 
         array (
             0 => __DIR__ . '/../..' . '/classes/MailChimp',

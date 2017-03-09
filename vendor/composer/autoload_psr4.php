@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'SublimeArts\\SublimeChimp\\Classes\\SublimeChimp\\' => array($baseDir . '/classes/SublimeChimp'),
     'SublimeArts\\SublimeChimp\\Classes\\MailChimp\\' => array($baseDir . '/classes/MailChimp'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),

@@ -13,6 +13,7 @@ class CreateMailingListsTable extends Migration
             $table->increments('id');
 
             $table->string('name')->unique();
+            $table->string('mailchimp_id')->nullable();
             $table->string('contact')->nullable();
             $table->string('permission_reminder')->nullable();
 

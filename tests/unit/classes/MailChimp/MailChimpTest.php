@@ -1,4 +1,4 @@
-<?php namespace SublimeArts\SublimeChimp\Tests\Unit\Classes;
+<?php namespace SublimeArts\SublimeChimp\Tests\Unit\Classes\MailChimp;
 
 require "vendor/autoload.php";
 

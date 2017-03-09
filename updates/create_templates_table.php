@@ -11,6 +11,7 @@ class CreateTemplatesTable extends Migration
         Schema::create('sa_sublimechimp_templates', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('mailchimp_id')->nullable();
             $table->timestamps();
         });
     }
