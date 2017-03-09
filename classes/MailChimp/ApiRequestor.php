@@ -73,8 +73,8 @@ class ApiRequestor
      * Gets either a single record of the provided MailChimp record ID or 
      * all records of a specified type if no record ID is provided.
      * @param  String    $recordType  Either 'campaigns', 'lists' or 'templates'
-     * @param  String    $recordId    MailChimp ID of a particular record to be fecthed
-     * @return Response               JSON Response received from the MailChimp API
+     * @param  String    $recordId    MailChimp ID of a particular record to be fetched
+     * @return Array                  Response received from the MailChimp API
      */
     public static function get($recordType, $recordId = null)
     {
@@ -89,7 +89,12 @@ class ApiRequestor
         }
     }
 
-
+    /**
+     * Delete a MailChimp record of a given type and with the provided MailChimp ID
+     * @param  String    $recordType  Either 'campaigns', 'lists' or 'templates'
+     * @param  String    $recordId    MailChimp ID of a particular record to be deleted
+     * @return Array                  Response received from the MailChimp API
+     */
     public static function delete($recordType, $recordIds)
     {
         if ( ! is_array($recordIds) ) {
