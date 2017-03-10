@@ -15,7 +15,15 @@ class Settings extends Model
         "mailchimp_username" => "MailChimp Username",
         "mailchimp_api_key" => "MailChimp API Key",
         "default_from_name" => "Default 'From' name",
-        "default_reply_to" => "Default 'Reply to' email address"
+        "default_reply_to" => "Default 'Reply to' email address",
+
+        "contact_organization" => "Organization Name",
+        "contact_address" => "Address",
+        "contact_city" => "City",
+        "contact_state" => "State",
+        "contact_zip" => "Zipcode",
+        "contact_country" => "Country",
+        "contact_phone" => "Phone"
     ];
 
     public $implement = ['System.Behaviors.SettingsModel'];

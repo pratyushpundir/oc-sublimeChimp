@@ -1,11 +1,11 @@
 <?php namespace SublimeArts\SublimeChimp\Models;
 
-use Model;
+use SublimeArts\SublimeChimp\Classes\SublimeChimp\BaseModel;;
 
 /**
  * MailingList Model
  */
-class MailingList extends Model
+class MailingList extends BaseModel
 {
     /**
      * @var string The database table used by the model.
@@ -20,7 +20,9 @@ class MailingList extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'mailchimp_id'
+    ];
 
     /**
      * @var array Relations

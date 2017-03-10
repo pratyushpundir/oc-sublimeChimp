@@ -33,3 +33,52 @@ tabs:
             required: true
             tab: Defaults
             comment: The email address that should be used to recieve all "replies" to your campaign emails.
+
+        contact_organization:
+            label: Organization Name
+            span: left
+            required: true
+            tab: Organization Details
+            comment: Enter this to comply with international anti-spam laws.
+
+        contact_address:
+            label: Street Address
+            span: right
+            required: true
+            tab: Organization Details
+            comment: Enter this to comply with international anti-spam laws.
+
+        contact_city:
+            label: City
+            span: left
+            required: true
+            tab: Organization Details
+            comment: Enter this to comply with international anti-spam laws.
+
+        contact_state:
+            label: State
+            span: right
+            required: true
+            tab: Organization Details
+            comment: Enter this to comply with international anti-spam laws.
+
+        contact_zip:
+            label: Zip
+            span: left
+            required: true
+            tab: Organization Details
+            comment: Enter this to comply with international anti-spam laws.
+
+        contact_country:
+            label: Country
+            span: right
+            required: true
+            tab: Organization Details
+            comment: Enter this to comply with international anti-spam laws.
+
+        contact_phone:
+            label: Phone
+            span: left
+            required: true
+            tab: Organization Details
+            comment: Enter this to comply with international anti-spam laws.

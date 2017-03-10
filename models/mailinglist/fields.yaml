@@ -5,4 +5,18 @@
 fields:
     name:
         label: List Name
-        disabled: true
+        span: left
+        required: true
+
+    permission_reminder:
+        label: Permission Reminder
+        type: textarea
+        size: large
+        span: left
+        required: true
+
+    # email_type_option:
+    #     label: Email Type Option
+    #     span: left
+    #     required: true
+
