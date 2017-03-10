@@ -15,9 +15,9 @@ class BaseModelTest extends PluginTestCase
     {
         $nativeClassName = 'SublimeArts\SublimeChimp\Models\Campaign';
         
-        $mcClass = BaseModel::getAdaptorClass($nativeClassName);
+        $adaptorClass = BaseModel::getAdaptorClass($nativeClassName);
         
-        $this->assertEquals($mcClass, 'SublimeArts\SublimeChimp\Classes\MailChimp\Campaign');
+        $this->assertEquals($adaptorClass, 'SublimeArts\SublimeChimp\Classes\MailChimp\Campaign');
     }
 
 }

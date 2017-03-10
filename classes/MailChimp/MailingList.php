@@ -32,7 +32,11 @@ class MailingList extends ApiResource
         
     ];
 
-    /** Create a new MailChimp List with the passed in native record instance. */
+    /**
+     * Create a new MailChimp List with the passed in native record instance.
+     * @param   MailingList  $instance  Instance of the native MailingList model class
+     * @return  Array                   Complete data of successfully saved MailChimp List
+     */
     public static function create($instance)
     {   
         $data = [
@@ -61,19 +65,23 @@ class MailingList extends ApiResource
             'email_type_option' => true
         ];
 
-        // Log::alert($data);
-        // die();
-
         return ApiRequestor::save('lists', $data);
     }
 
-    /** Get a List from MailChimp API based on the passed MailChimp List ID. */
+    /**
+     * Get a List from MailChimp API based on the passed MailChimp ID.
+     * @param  String  $listId  MailChimp ID of the List to be fetched
+     * @return Array            Complete data of the fetched List if successfully found 
+     */
     public static function get($listId)
     {
         return ApiRequestor::get('lists', $listId);
     }
 
-    /** Get all Lists saved on MailChimp. */
+    /**
+     * Get all Lists saved on MailChimp.
+     * @return Array  All Lists on MailChimp
+     */
     public static function all()
     {
         return ApiRequestor::get('lists');

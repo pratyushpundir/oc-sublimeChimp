@@ -33,7 +33,11 @@ class Campaign extends ApiResource
         ]
     ];
 
-    /** Create a new MailChimp Campaign with the passed in native record instance. */
+    /**
+     * Create a new MailChimp Campaign with the passed in native record instance.
+     * @param   Campaign  $instance  Instance of the native Campaign model class
+     * @return  Array                Complete data of successfully saved MailChimp Campaign
+     */
     public static function create($instance)
     {   
         $data = [
@@ -49,13 +53,20 @@ class Campaign extends ApiResource
         return ApiRequestor::save('campaigns', $data);
     }
 
-    /** Get a campaign from MailChimp API based on the passed MailChimp Campaign ID. */
+    /**
+     * Get a campaign from MailChimp API based on the passed MailChimp Campaign ID.
+     * @param  String  $campaignId  MailChimp ID of the Campaign to be fetched
+     * @return Array                Complete data of the fetched Campaign if successfully found 
+     */
     public static function get($campaignId)
     {
         return ApiRequestor::get('campaigns', $campaignId);
     }
 
-    /** Get all campaigns saved on MailChimp. */
+    /**
+     * Get all campaigns saved on MailChimp.
+     * @return Array  All Campaigns on MailChimp
+     */
     public static function all()
     {
         return ApiRequestor::get('campaigns');

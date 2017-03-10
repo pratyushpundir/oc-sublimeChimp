@@ -6,7 +6,7 @@ abstract class ApiResource
     /** List of all attributes required for a particular MailChimp Resource. */
     public static $requiredAttributes = [];
 
-    /** Mapping of native MailChimp attributes to those employed by native models. */
+    /** Mapping of MailChimp attributes to those employed by native models. */
     public static $mailChimpToNativeAttrMapping = [];
 
     /**

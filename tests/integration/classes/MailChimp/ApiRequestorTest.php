@@ -42,7 +42,9 @@ class ApiRequestorTest extends PluginTestCase
         ];
     }
     
-    /** @test */
+    /**
+     * @test
+     */
     public function it_creates_a_single_record_on_mailchimp_and_fetches_it()
     {
         /** Campaign 1 */

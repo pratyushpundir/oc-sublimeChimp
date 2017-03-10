@@ -1,7 +1,7 @@
 <?php namespace SublimeArts\SublimeChimp\Classes\MailChimp;
 
-use SublimeArts\SublimeChimp\Models\Settings;
 use October\Rain\Exception\ApplicationException;
+use SublimeArts\SublimeChimp\Models\Settings;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Client;
 use Log;
@@ -12,12 +12,13 @@ class ApiRequestor
     protected static $httpClient;
 
     /**
-     * Allows setting a custom Http Client or defaults to the bundled 
+     * Sets a custom Http Client or defaults to the bundled 
      * GuzzleHttp Client.
      */
     public static function setHttpClient($httpClient = null)
     {
         if ( ! $httpClient ) {
+
             static::$httpClient = new Client([
                 'base_uri' => MailChimp::getApiBase(),
                 'auth' => [
@@ -25,6 +26,7 @@ class ApiRequestor
                     MailChimp::getApiKey()
                 ]
             ]);
+
         } else {
             static::$httpClient = $httpClient;
         }
@@ -41,30 +43,38 @@ class ApiRequestor
         if ( ! static::$httpClient ) {
             static::setHttpClient();
         }
+
         return static::$httpClient;
     }
 
     /**
      * Saves a record of a given type with the provided data to MailChimp and 
      * returns an associative array with the created record if successful.
-     * @param  String    $recordType  Either 'campaigns', 'lists' or 'templates'
-     * @param  Array     $data        Passed in data to be saved as record  
-     * @return Array                  Newly created record
+     * @param  String  $recordType  Either 'campaigns', 'lists', 'templates', etc.
+     * @param  Array   $data        Passed in data to be saved as record  
+     * @return Array                Newly created record
      */
     public static function save($recordType, $data)
     {
 
         try {
+
             $record = static::httpClient()->request('POST', $recordType, [
                 'json' => $data
             ]);
 
             return json_decode($record->getBody()->getContents(), true);
+
         } catch (ClientException $e) {
+
             Log::error( $e );
             
             $recordType = studly_case( str_singular( $recordType ) );
-            throw new ApplicationException("{$recordType} creation on MailChimp failed. Aborting!! Check system Log for details.");
+            
+            throw new ApplicationException(
+                "{$recordType} creation on MailChimp failed. Aborting!! Check system Log for details."
+            );
+
         }
 
     }
@@ -72,18 +82,36 @@ class ApiRequestor
     /**
      * Gets either a single record of the provided MailChimp record ID or 
      * all records of a specified type if no record ID is provided.
-     * @param  String    $recordType  Either 'campaigns', 'lists' or 'templates'
-     * @param  String    $recordId    MailChimp ID of a particular record to be fetched
-     * @return Array                  Response received from the MailChimp API
+     * @param  String  $recordType  Either 'campaigns', 'lists', 'templates', etc.
+     * @param  String  $recordId    MailChimp ID of a particular record to be fetched
+     * @return Array                Response received from the MailChimp API
      */
     public static function get($recordType, $recordId = null)
     {
         try {
+
             if ( ! $recordId ) {
-                return json_decode(static::httpClient()->request('GET', $recordType)->getBody()->getContents(), true);
+                
+                /** Get all */
+                return json_decode(
+                    static::httpClient()
+                        ->request('GET', $recordType)
+                        ->getBody()->getContents(), 
+                    true
+                );
+
             } else {
-                return json_decode(static::httpClient()->request('GET', "{$recordType}/{$recordId}")->getBody()->getContents(), true);
+                
+                /** Get one */
+                return json_decode(
+                    static::httpClient()
+                        ->request('GET', "{$recordType}/{$recordId}")
+                        ->getBody()->getContents(), 
+                    true
+                );
+
             }
+
         } catch (ClientException $e) {
             throw new ApplicationException("Record(s) not found!");
         }
@@ -93,9 +121,12 @@ class ApiRequestor
     {
         try {
             
-            return json_decode(static::httpClient()->request('PATCH', "{$recordType}/{$recordId}", [
-                'json' => $data
-            ])->getBody()->getContents(), true);
+            return json_decode(
+                static::httpClient()
+                    ->request('PATCH', "{$recordType}/{$recordId}", ['json' => $data])
+                    ->getBody()->getContents(), 
+                true
+            );
 
         } catch (ClientException $e) {
             throw new ApplicationException($e);
@@ -104,14 +135,26 @@ class ApiRequestor
 
     /**
      * Delete a MailChimp record of a given type and with the provided MailChimp ID
-     * @param  String    $recordType  Either 'campaigns', 'lists' or 'templates'
-     * @param  String    $recordId    MailChimp ID of a particular record to be deleted
-     * @return Array                  Response received from the MailChimp API
+     * @param  String  $recordType  Either 'campaigns', 'lists', 'templates', etc.
+     * @param  String  $recordId    MailChimp ID of a particular record to be deleted
+     * @return Array                Response received from the MailChimp API
      */
     public static function delete($recordType, $recordIds)
     {
         if ( ! is_array($recordIds) ) {
-            return json_decode(static::httpClient()->request('DELETE', "{$recordType}/{$recordIds}")->getBody()->getContents(), true);
+            
+            try {
+                
+                return json_decode(
+                    static::httpClient()->request('DELETE', "{$recordType}/{$recordIds}")
+                        ->getBody()->getContents(), 
+                    true
+                );
+
+            } catch (ClientException $e) {
+                throw new ApplicationException("Ooops! Something went wrong! Are you sure the record exists?");
+            }
+
         } else {
 
             /** Do not allow batch deletion for now. Will allow soon! */

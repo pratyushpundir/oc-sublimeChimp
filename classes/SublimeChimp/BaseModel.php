@@ -1,7 +1,7 @@
 <?php namespace SublimeArts\SublimeChimp\Classes\SublimeChimp;
 
-use Model, Log;
 use SublimeArts\SublimeChimp\Models\Settings;
+use Model, Log;
 
 class BaseModel extends Model
 {
@@ -50,8 +50,8 @@ class BaseModel extends Model
 
         $nativeClassName = array_pop( $classNameParts );
 
-        $result = "SublimeArts\SublimeChimp\Classes\MailChimp\\" . $nativeClassName;
-        return $result;
+        $adaptorClass = "SublimeArts\SublimeChimp\Classes\MailChimp\\" . $nativeClassName;
+        return $adaptorClass;
     }
 
 }
