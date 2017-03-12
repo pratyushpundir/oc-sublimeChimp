@@ -8,21 +8,7 @@ class BaseModel extends Model
 
     public function beforeCreate()
     {
-        /**
-         * Use default "reply_to" and "from_name" values set under plugin Settings
-         * if none were provided for the Campaign specifically.
-         */
-        if ( get_class($this) == 'SublimeArts\SublimeChimp\Models\Campaign' ) 
-        {
-            
-            $this->reply_to = ($this->reply_to && $this->reply_to != '') 
-                            ? $this->reply_to 
-                            : Settings::get('default_reply_to');
-                            
-            $this->from_name = ($this->from_name && $this->from_name != '') 
-                            ? $this->from_name 
-                            : Settings::get('default_from_name');
-        }
+        
     }
 
     public function afterCreate()

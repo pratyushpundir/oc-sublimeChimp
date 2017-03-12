@@ -34,4 +34,22 @@ class Campaign extends BaseModel
         'mailingList' => [ 'SublimeArts\SublimeChimp\Models\MailingList' ]
     ];
 
+    public function beforeSave()
+    {
+        
+        /**
+         * Use defaults set under Settings if no value is provided thru the creation form.
+         */
+        $this->reply_to = ($this->reply_to && $this->reply_to != '') 
+                            ? $this->reply_to 
+                            : Settings::get('default_reply_to');
+                            
+        $this->from_name = ($this->from_name && $this->from_name != '') 
+                        ? $this->from_name 
+                        : Settings::get('default_from_name');
+
+        parent::beforeSave();
+
+    }
+
 }
