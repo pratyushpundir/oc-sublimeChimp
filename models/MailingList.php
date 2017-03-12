@@ -1,6 +1,7 @@
 <?php namespace SublimeArts\SublimeChimp\Models;
 
-use SublimeArts\SublimeChimp\Classes\SublimeChimp\BaseModel;;
+use SublimeArts\SublimeChimp\Classes\SublimeChimp\BaseModel;
+use SublimeArts\SublimeChimp\Models\Settings;
 
 /**
  * MailingList Model
@@ -47,4 +48,39 @@ class MailingList extends BaseModel
             'count'    => 'true'
         ]
     ];
+
+    public function getContactInfo()
+    {
+        return json_encode([
+            "company" => Settings::get("contact_organization"),
+            "address1" => Settings::get("contact_address"),
+            "city" => Settings::get("contact_city"),
+            "state" => Settings::get("contact_state"),
+            "zip" => Settings::get("contact_zip"),
+            "country" => Settings::get("contact_country"),
+            "phone" => Settings::get("contact_phone")
+        ]);
+    }
+
+    public function getContactAttribute()
+    {
+        return ( Settings::get("contact_organization") )
+                ? Settings::get("contact_organization")
+                : "-";
+    }
+
+    public function beforeSave()
+    {
+
+        /**
+         * Use defaults set under Settings if no value is provided thru the creation form.
+         */
+        $this->contact = ($this->contact && $this->contact != '') 
+                        ? $this->contact 
+                        : Settings::get('default_reply_to');
+
+
+        parent::beforeSave();
+
+    }
 }

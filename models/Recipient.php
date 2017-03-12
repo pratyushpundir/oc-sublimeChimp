@@ -31,7 +31,14 @@ class Recipient extends Model
      * @var array Relations
      */
     public $belongsToMany = [
-        'mailingLists' => [ 'SublimeArts\ChimpMailing\Models\MailingList' ],
-        'mailingLists_count' => [ 'SublimeArts\ChimpMailing\Models\MailingList', 'count' => 'true' ]
+        'mailingLists' => [ 
+            'SublimeArts\SublimeChimp\Models\MailingList',
+            'table' => 'sa_mailing_list_recipient'
+        ],
+        'mailingLists_count' => [
+            'SublimeArts\SublimeChimp\Models\MailingList', 
+            'table' => 'sa_mailing_list_recipient',
+            'count' => 'true' 
+        ]
     ];
 }

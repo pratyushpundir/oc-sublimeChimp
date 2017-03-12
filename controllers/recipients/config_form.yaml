@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Recipient
+
+# Model Form Field configuration
+form: $/sublimearts/sublimechimp/models/recipient/fields.yaml
+
+# Model Class name
+modelClass: SublimeArts\SublimeChimp\Models\Recipient
+
+# Default redirect location
+defaultRedirect: sublimearts/sublimechimp/recipients
+
+# Create page
+create:
+    title: Create Recipient
+    redirect: sublimearts/sublimechimp/recipients/update/:id
+    redirectClose: sublimearts/sublimechimp/recipients
+
+# Update page
+update:
+    title: Edit Recipient
+    redirect: sublimearts/sublimechimp/recipients
+    redirectClose: sublimearts/sublimechimp/recipients
+
+# Preview page
+preview:
+    title: Preview Recipient

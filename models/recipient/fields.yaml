@@ -3,6 +3,20 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    
+    name:
+        label: Name
+        required: true
+        span: left
+
+    email:
+        label: Email
+        required: true
+        span: right
+
+    mailingLists:
+        label: Mailing Lists
+        required: true
+        type: relation
+        nameFrom: name
+

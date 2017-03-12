@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('sublimearts/sublimechimp/mailinglists') ?>">Mailing Lists</a></li>
+        <li><a href="<?= Backend::url('sublimearts/sublimechimp/recipients') ?>">Recipients</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -10,7 +10,6 @@
     <?= Form::open(['class' => 'layout']) ?>
 
         <div class="layout-row">
-            <?= $this->relationRender('recipients') ?>
             <?= $this->formRender() ?>
         </div>
 
@@ -20,7 +19,7 @@
                     type="submit"
                     data-request="onSave"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Creating MailingList..."
+                    data-load-indicator="Creating Recipient..."
                     class="btn btn-primary">
                     Create
                 </button>
@@ -29,12 +28,12 @@
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Creating MailingList..."
+                    data-load-indicator="Creating Recipient..."
                     class="btn btn-default">
                     Create and Close
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('sublimearts/sublimechimp/mailinglists') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('sublimearts/sublimechimp/recipients') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -44,6 +43,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('sublimearts/sublimechimp/mailinglists') ?>" class="btn btn-default">Return to mailing lists list</a></p>
+    <p><a href="<?= Backend::url('sublimearts/sublimechimp/recipients') ?>" class="btn btn-default">Return to recipients list</a></p>
 
 <?php endif ?>
