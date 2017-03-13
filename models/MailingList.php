@@ -72,15 +72,7 @@ class MailingList extends BaseModel
     public function beforeSave()
     {
 
-        /**
-         * Use defaults set under Settings if no value is provided thru the creation form.
-         */
-        $this->contact = ($this->contact && $this->contact != '') 
-                        ? $this->contact 
-                        : Settings::get('default_reply_to');
-
-
-        parent::beforeSave();
+        
 
     }
 }

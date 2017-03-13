@@ -14,8 +14,6 @@ class CreateRecipientsTable extends Migration
             
             $table->string('name')->nullable();
             $table->string('email')->unique()->index();
-            $table->string('record_id')->unique()->index();
-            $table->string('record_class')->unique()->index();
 
             $table->timestamps();
         });

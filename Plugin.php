@@ -115,6 +115,12 @@ class Plugin extends PluginBase
                         'url' => Backend::url('sublimearts/sublimechimp/mailinglists'),
                         'permissions' => ['sublimearts.sublimechimp.*'],
                     ],
+                    'recipients' => [
+                        'label' => 'Recipients',
+                        'icon' => 'icon-users',
+                        'url' => Backend::url('sublimearts/sublimechimp/recipients'),
+                        'permissions' => ['sublimearts.sublimechimp.*'],
+                    ],
                     'templates' => [
                         'label' => 'Templates',
                         'icon' => 'icon-file-image-o',

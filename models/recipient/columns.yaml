@@ -13,3 +13,8 @@ columns:
         label: Email
         searchable: true
         sortable: true
+
+    mailingLists:
+        label: Mailing Lists
+        relation: mailingLists
+        select: name

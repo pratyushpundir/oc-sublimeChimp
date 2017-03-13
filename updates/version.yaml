@@ -4,3 +4,4 @@
     - create_mailing_lists_table.php
     - create_recipients_table.php
     - create_templates_table.php
+    - seed_recipients_table.php

@@ -14,9 +14,9 @@ fields:
         required: true
         span: right
 
-    mailingLists:
-        label: Mailing Lists
-        required: true
-        type: relation
-        nameFrom: name
+    # mailingLists:
+    #     label: Mailing Lists
+    #     required: true
+    #     type: relation
+    #     nameFrom: name
 
