@@ -1,11 +1,11 @@
 <?php namespace SublimeArts\SublimeChimp\Models;
 
-use Model;
+use SublimeArts\SublimeChimp\Classes\SublimeChimp\BaseModel;
 
 /**
  * Template Model
  */
-class Template extends Model
+class Template extends BaseModel
 {
     /**
      * @var string The database table used by the model.

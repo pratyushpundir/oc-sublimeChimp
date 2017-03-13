@@ -1,9 +1,9 @@
 <?php namespace SublimeArts\SublimeChimp\Models;
 
-use Log, Flash;
-use October\Rain\Exception\SystemException;
 use SublimeArts\SublimeChimp\Classes\MailChimp\Campaign as MCCampaign;
 use SublimeArts\SublimeChimp\Classes\SublimeChimp\BaseModel;
+use October\Rain\Exception\SystemException;
+use Log, Flash;
 
 /**
  * Campaign Model
@@ -24,6 +24,11 @@ class Campaign extends BaseModel
      * @var array Fillable fields
      */
     protected $fillable = [
+        "name",
+        "type",
+        "subject_line",
+        "from_name",
+        "reply_to",
         "mailchimp_id"
     ];
 
@@ -47,8 +52,6 @@ class Campaign extends BaseModel
         $this->from_name = ($this->from_name && $this->from_name != '') 
                         ? $this->from_name 
                         : Settings::get('default_from_name');
-
-        parent::beforeSave();
 
     }
 

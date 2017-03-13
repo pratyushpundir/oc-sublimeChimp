@@ -2,8 +2,11 @@
 
 require "vendor/autoload.php";
 
-use PluginTestCase;
 use SublimeArts\SublimeChimp\Classes\SublimeChimp\BaseModel;
+use SublimeArts\SublimeChimp\Models\MailingList;
+use SublimeArts\SublimeChimp\Models\Campaign;
+use SublimeArts\SublimeChimp\Models\Template;
+use PluginTestCase;
 
 class BaseModelTest extends PluginTestCase
 {
@@ -13,11 +16,9 @@ class BaseModelTest extends PluginTestCase
      */
     public function it_translates_a_native_classname_into_our_adaptor_classname()
     {
-        $nativeClassName = 'SublimeArts\SublimeChimp\Models\Campaign';
-        
-        $adaptorClass = BaseModel::getAdaptorClass($nativeClassName);
-        
-        $this->assertEquals($adaptorClass, 'SublimeArts\SublimeChimp\Classes\MailChimp\Campaign');
+        $this->assertEquals(Campaign::getAdaptorClass(), 'SublimeArts\SublimeChimp\Classes\MailChimp\Campaign');
+        $this->assertEquals(MailingList::getAdaptorClass(), 'SublimeArts\SublimeChimp\Classes\MailChimp\MailingList');
+        $this->assertEquals(Template::getAdaptorClass(), 'SublimeArts\SublimeChimp\Classes\MailChimp\Template');
     }
 
 }
