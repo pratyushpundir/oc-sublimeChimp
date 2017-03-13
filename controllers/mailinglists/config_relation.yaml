@@ -4,8 +4,10 @@
 
 recipients:
     label: Recipients
+    
     view:
         list: $/sublimearts/sublimechimp/models/recipient/columns.yaml
+        toolbarButtons: add|remove
     manage:
         list: $/sublimearts/sublimechimp/models/recipient/columns.yaml
     pivot:
