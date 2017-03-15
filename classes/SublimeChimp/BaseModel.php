@@ -22,6 +22,13 @@ class BaseModel extends Model
         $mcRecord = $adaptorClass::create($this);
         $this->update(["mailchimp_id" => $mcRecord["id"]]);
 
+        // if ( array_pop( explode( '\\', get_called_class() ) ) != 'Recipient' ) {
+        //     $mcRecord = $adaptorClass::create($this);
+        //     $this->update(["mailchimp_id" => $mcRecord["id"]]);
+        // } else {
+        //     $remoteRecipient = $adaptorClass::subscribe($this);
+        // }
+
     }
 
     /**

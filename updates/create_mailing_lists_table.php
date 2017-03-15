@@ -23,6 +23,8 @@ class CreateMailingListsTable extends Migration
         Schema::create('sa_mailing_list_recipient', function(Blueprint $table) {
             $table->integer('mailing_list_id')->unsigned();
             $table->integer('recipient_id')->unsigned();
+            $table->string('status')->nullable();
+            $table->timestamps();
             $table->primary(['mailing_list_id', 'recipient_id']);
         });
     }

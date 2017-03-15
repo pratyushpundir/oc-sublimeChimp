@@ -1,7 +1,7 @@
-1.0.1: 
+1.0.1:
     - First version of Sublime Chimp
     - create_campaigns_table.php
     - create_mailing_lists_table.php
     - create_recipients_table.php
-    - create_templates_table.php
     - seed_recipients_table.php
+    - create_templates_table.php

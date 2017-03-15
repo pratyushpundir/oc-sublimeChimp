@@ -13,6 +13,11 @@ class Recipient extends Model
     public $table = 'sa_sublimechimp_recipients';
 
     /**
+     * All of the relationships to be touched.
+     */
+    protected $touches = ['mailingLists'];
+
+    /**
      * @var array Guarded fields
      */
     protected $guarded = ['*'];
